@@ -14,7 +14,9 @@ export class ContactDetailPageComponent implements OnInit{
     //params nos devuelve un observable con parametros
     this.route.params.subscribe(
       (params:any) => {
-        this.id = params.id;
+        if(params.id){
+          this.id = params.id;
+        }
       }
     )
   }
