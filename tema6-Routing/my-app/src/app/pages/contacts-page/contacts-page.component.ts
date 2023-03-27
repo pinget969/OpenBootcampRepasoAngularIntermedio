@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { IContacto } from 'src/app/models/cotact.interface';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contacts-page',
@@ -9,37 +10,31 @@ import { IContacto } from 'src/app/models/cotact.interface';
 })
 export class ContactsPageComponent implements OnInit{
   
-  listaContactos: IContacto[]=[
-    {
-      id:0,
-      nombre:'martin',
-      apellidos: 'Don Jose',
-      email: 'marjose@gmail.com',
-      sexo: 'hombre'
-    },
-    {
-      id:1,
-      nombre:'pedro',
-      apellidos: 'perez',
-      email: 'pepe@gmail.com',
-      sexo: 'hombre'
-    },
-    {
-      id:2,
-      nombre:'carla',
-      apellidos: 'gomez',
-      email: 'carla@gmail.com',
-      sexo: 'mujer'
-    }
-  ]
-  
-  constructor(private router:Router, private route:ActivatedRoute){}
+  filtroSexo: string = 'todos';
+  listaContactos: IContacto[]=[];
+
+  constructor(private router:Router, private route:ActivatedRoute, private contactService:ContactService){}
   ngOnInit(): void {
+   
+
+
     //Obtener los Query Params
     this.route.queryParams.subscribe((params:any)=>{
       console.log('queryParams:',params.sexo)
+      if(params.sexo){
+        this.filtroSexo = params.sexo
+      }
+       //Obtener la lista de contacto
+      
+      this.contactService.obtenerContactos(this.filtroSexo)
+      .then(
+          (lista) => this.listaContactos=lista
+      )
+      .catch((error)=> console.error(`ha habido un error al obtener los contactos: ${error}`))
+      .finally(()=> console.info(`peticion de contacto finalizada`))
     })
   }
+
   volverAHome(contacto:IContacto){
     let navigationExtras: NavigationExtras ={
       state:{

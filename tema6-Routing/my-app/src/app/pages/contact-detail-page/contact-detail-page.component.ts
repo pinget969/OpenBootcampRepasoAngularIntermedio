@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; //Nos dirá el contenido de la URL
+import { IContacto } from 'src/app/models/cotact.interface';
 
 @Component({
   selector: 'app-contact-detail-page',
@@ -8,6 +9,8 @@ import { ActivatedRoute } from '@angular/router'; //Nos dirá el contenido de la
 })
 export class ContactDetailPageComponent implements OnInit{
   id:any | undefined;
+  contacto:IContacto | undefined;
+  filtroPrevio:string='todos';
 
   constructor(private route:ActivatedRoute ){}
   ngOnInit(): void {
@@ -19,5 +22,12 @@ export class ContactDetailPageComponent implements OnInit{
         }
       }
     )
+    //Leyendo del estado del contacto
+    if(history.state.data){  //obtenemos acceso al cotacto
+    this.contacto = history.state.data;
+    }
+    if(history.state.filtro){ 
+      this.filtroPrevio = history.state.filtro;
+      }
   }
 }

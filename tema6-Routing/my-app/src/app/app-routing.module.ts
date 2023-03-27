@@ -25,7 +25,8 @@ const routes: Routes = [
         path:'hijo',
         component: HomePageComponent,
       }
-    ]
+    ],
+    canActivate: [AuthGuard] //al no estar logeado, nos direcciona al login.
   },
   {
     path:'contacts',
