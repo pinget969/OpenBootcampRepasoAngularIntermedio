@@ -2,5 +2,6 @@
 <div *ngFor="let contacto of listaContacto; let i=index">
     <div routerLink="{{contacto.id}}"> <!--Utiliza el path raiz del componente-->
         <h6>{{contacto.nombre}}</h6>
+        <button (click)="volverAHome(contacto)">seleccionar contacto</button>
     </div>
 </div>

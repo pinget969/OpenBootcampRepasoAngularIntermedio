@@ -1,4 +1,7 @@
 <h1>Page home</h1>
 <h3>!Bienvenido!</h3>
-<a routerLink="/login">Acceder a tu cuenta</a>
+<h4 *ngIf="contactoSeleccionado"> Has seleccionado a: {{contactoSeleccionado.nombre}}</h4>
+
+<a *ngIf="!token" routerLink="/login">Acceder a tu cuenta</a>
+
 <button (click)="navegarAContacto()">Ver tus contactos</button>

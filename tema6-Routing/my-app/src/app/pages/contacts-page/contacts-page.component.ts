@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { IContacto } from 'src/app/models/cotact.interface';
 
 @Component({
@@ -28,9 +29,22 @@ export class ContactsPageComponent implements OnInit{
       email: 'carla@gmail.com'
     }
   ]
+    
+  constructor(private router:Router){}
   
-  constructor(){}
   ngOnInit(): void {
+
+
   }
+  //Ejemplo paso de informacion entre ccomponentes
+  volverAHome(contacto: IContacto){
+    let navigationExtras: NavigationExtras ={
+      state:{
+        data:contacto
+      }
+    }
+    this.router.navigate(['/home'], navigationExtras);
+  }
+
 
 }
