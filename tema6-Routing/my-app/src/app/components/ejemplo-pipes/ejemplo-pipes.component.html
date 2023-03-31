@@ -1,0 +1,50 @@
+<p>Pipes nativos de angular</p>
+
+<!-- Fechas -->
+<h2>Pipes para fecha</h2>
+<p>Mi cumpleaños es: {{dob}}</p>
+<p>Fecha- con PIPE: {{dob | date}} </p>
+<p>Fecha con parametro "dd/MM/yyyy" : {{dob | date:"dd/MM/yyyy"}} </p> <!--con parametros-->
+
+<p>Fecha- con PIPE Short : {{dob | date: "shortDate"}} </p>
+<p>Fecha- con PIPE Full: {{dob | date: "fullDate"}} </p>
+<p>Fecha- con PIPE Short/Full: {{dob | date: dateFormat}} </p>
+
+<p>Fecha- con PIPE Short/Full MASYUSCULA: {{dob | date: dateFormat| uppercase}} </p>
+<p>Fecha- con PIPE Short/Full MINISCULA: {{dob | date: dateFormat | lowercase}} </p>
+
+<!--Decimales-->
+<p>PI (3 decimales): {{numero_PI | number: '.1-3'}}</p>
+<p>PI (5 decimales): {{numero_PI | number: '.5-5'}}</p>
+<p>PI (2 enteros y 8 decimales): {{numero_PI | number: '2.8-8'}}</p>
+
+<!--MONEDA-->
+<p>Precio carrito (€) {{precioCarrito |currency:'EUR'}} </p>
+<p>Precio carrito ($) {{precioCarrito |currency:'USD'}} </p>
+<p>Precio carrito ($) {{precioCarrito |currency:'USD':true:'.3-3'}} </p>
+
+<!--JSON-->
+<p>{{persona | json}} </p>
+<!--Porcentaje-->
+<p> Porcentaje de votos obtenidos: {{cantidad | percent: '2.2-2'}} </p>
+
+<!--Slice-->
+<p> Texto demasiado largo: {{textoLargo | slice: 1:10}}... </p>
+
+
+
+<button (click)="cambiarFormato()">cambiar formato a {{!cambio? 'Short':'Full'}}</button>
+
+<!--PIPE Personalizado (Multiplica)-->
+<p>Resultado: {{2| multiplica:10}} puntos</p>
+<!--PIPE Personalizado (CalcularPuntiacion)-->
+<p>{{jugador1| calculadorPuntuacion}}</p>
+<p>{{jugador2| calculadorPuntuacion}}</p>
+
+
+
+
+
+
+
+

@@ -44,7 +44,6 @@
     <div *ngIf="acepta?.errors?.['requiredTrue'] && acepta?.touched">
         <p [style]="{color:'tomato'}">Este campo es obligatorio</p>
     </div>
-    
     <!--Batón de submit que se activa solo cuando el formulario es valido-->
     <button type="submit" [disabled]="miFormularioValidado.invalid">Enviar</button>
 </form>
