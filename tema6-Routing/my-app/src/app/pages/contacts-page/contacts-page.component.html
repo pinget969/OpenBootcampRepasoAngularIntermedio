@@ -1,15 +1,10 @@
 <h1>contacts page</h1>
-<<<<<<< HEAD
-<div *ngFor="let contacto of listaContacto; let i=index">
-    <div routerLink="{{contacto.id}}"> <!--Utiliza el path raiz del componente-->
-        <h6>{{contacto.nombre}}</h6>
-        <button (click)="volverAHome(contacto)">seleccionar contacto</button>
-=======
+
 <div *ngFor="let contacto of listaContactos; let i=index">
     <div routerLink="{{contacto.id}}" [state]="{data:contacto, filtro:filtroSexo}"> <!--Utiliza el path raiz del componente-->
         <h6 class="contacto">{{contacto.nombre}}</h6>
         <button (click)="volverAHome(contacto)">enviar contacto</button>
->>>>>>> 8050d5de427764fcccd81f992aa23297267100e1
+
     </div>
 </div>
 <ng-container *ngIf="filtroSexo =='mujer' || filtroSexo == 'hombre'; else completo">

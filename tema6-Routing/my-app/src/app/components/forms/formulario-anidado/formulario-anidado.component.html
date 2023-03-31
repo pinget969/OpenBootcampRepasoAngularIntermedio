@@ -1,1 +1,19 @@
-<p>formulario-anidado works!</p>
+<form [formGroup]="miFormularioAnidado">
+
+    <h3>Datos en vivo del formulario</h3>
+    <p>{{miFormularioAnidado.value | json}}</p> <!--REVISAR-->
+ 
+
+    <h4>Teléfono Fijo:</h4>
+    <div formGroupName="telefonoFijo">
+        <input  placeholder="Prefijo" formControlName="prefijo"/>
+        <input placeholder="Numero" formControlName="numero"/>
+    </div>
+
+    <h4>Teléfono Movil:</h4>
+    <div formGroupName="telefonoMovil">
+        <input placeholder="Prefijo" formControlName="prefijo"/>
+        <input placeholder="Numero" formControlName="numero"/>
+    </div>
+
+</form>

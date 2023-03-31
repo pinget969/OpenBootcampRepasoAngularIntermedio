@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+//Module Material
+import { MatFormFieldModule } from '@angular/material/form-field';
+//module customized 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
@@ -35,6 +38,8 @@ import { FormularioValidadoComponent } from './components/forms/formulario-valid
     HttpClientModule,
     //Importacion Reactive FormsModule para  formularios Reactivos
     ReactiveFormsModule,
+    //Importamos los módulos de angular material para hacer formularios.
+    MatFormFieldModule,
     BrowserAnimationsModule
   ],
   providers: [],

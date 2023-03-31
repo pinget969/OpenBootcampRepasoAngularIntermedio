@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { NavigationExtras, Router } from '@angular/router';
-=======
+ 
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
->>>>>>> 8050d5de427764fcccd81f992aa23297267100e1
+ 
 import { IContacto } from 'src/app/models/cotact.interface';
 import { ContactService } from 'src/app/services/contact.service';
 
@@ -14,43 +12,6 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class ContactsPageComponent implements OnInit{
   
-<<<<<<< HEAD
-  listaContacto: IContacto[]=[
-    {
-      id:0,
-      nombre:'martin',
-      apellidos: 'Don Jose',
-      email: 'marjose@gmail.com'
-    },
-    {
-      id:1,
-      nombre:'pedro',
-      apellidos: 'perez',
-      email: 'pepe@gmail.com'
-    },
-    {
-      id:2,
-      nombre:'carla',
-      apellidos: 'gomez',
-      email: 'carla@gmail.com'
-    }
-  ]
-    
-  constructor(private router:Router){}
-  
-  ngOnInit(): void {
-
-
-  }
-  //Ejemplo paso de informacion entre ccomponentes
-  volverAHome(contacto: IContacto){
-    let navigationExtras: NavigationExtras ={
-      state:{
-        data:contacto
-      }
-    }
-    this.router.navigate(['/home'], navigationExtras);
-=======
   filtroSexo: string = 'todos';
   listaContactos: IContacto[]=[];
 
@@ -83,7 +44,6 @@ export class ContactsPageComponent implements OnInit{
       }
     }
     this.router.navigate(["/home"],navigationExtras);
->>>>>>> 8050d5de427764fcccd81f992aa23297267100e1
   }
 
 
